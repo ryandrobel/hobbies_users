@@ -1,0 +1,33 @@
+@{
+    ViewData["Title"] = "Exam2Dash";
+}
+<a href="logout">Logout</a>
+@model List<Hobby>
+<div class="text-center">
+    <p><a>Welcome @ViewBag.User.FirstName</a></p>
+    <h1 class="display-4">Hobbies</h1>
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Enthusiasts</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var h in Model)
+            {
+            <tr>
+                <td><a href="/@h.HobbyId">@h.Name</a></td>
+                <td>@h.Enthusiasts.Count</td>
+                <td>
+                </td>
+            </tr>
+            }
+    </tbody>
+</table>
+
+
+
+
+<a href="createpage">Create a Hobby</a>

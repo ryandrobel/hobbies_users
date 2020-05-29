@@ -1,0 +1,35 @@
+@model Hobby
+    @{
+    ViewData["Title"] = "Show";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Check out this hobby @ViewBag.User.FirstName</h1>
+</div>
+    
+        <div class="card">
+            <div class="car-header">
+                <div class="card-body">
+                    
+                    <h1>@Model.Name</h1>
+                    <p>@Model.Description</p>
+                    
+                    
+                    
+                    <div class="row">
+                        <div class="col-6">
+                            <h2>Enthusiasts</h2>
+                            <h5>Enthusiast Count:@Model.Enthusiasts.Count</h5>
+                        @foreach(var p in @Model.Enthusiasts )
+                        {
+                            <p>@p.User.FirstName</p>
+                        }
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <a href="/Display">Hobbies</a>
+                <a href="/join/@Model.HobbyId/@ViewBag.User.UserId">Become an Enthusiast</a>
+            </div>
+        </div>
